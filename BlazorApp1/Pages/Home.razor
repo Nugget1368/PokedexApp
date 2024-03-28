@@ -1,0 +1,50 @@
+﻿@page "/"
+@using PokedexApp.Shared.Models.Pokemonss
+
+<PageTitle>Home</PageTitle>
+
+<p><b>Find your Pokemon</b></p>
+<input @bind="Input" placeholder="Pokemon" />
+<button class="btn btn-primary" @onclick="async() => await Get(Input)">Get Pokemon!</button>
+
+@if (Model != null)
+{
+	<h3><b>@Model.Name</b></h3>
+	<div style="display: flex; flex-flow: row wrap;">
+		<img src="@Model.Sprites.front_default" alt="sheit...." style="width: 300px;" />
+		@if (Model.Sprites.front_shiny != string.Empty)
+		{
+			<img src="@Model.Sprites.front_shiny" alt="sheit...." style="width: 300px;" />
+		}
+	</div>
+	<p>Height: @Model.Height</p>
+	<p>Weight: @Model.Weight</p>
+	<div style="display: flex; flex-flow: row wrap;">
+		<p>Moves: @Model.Moves[0].Move!.Name, @Model.Moves[1].Move!.Name, @Model.Moves[2].Move!.Name</p>
+	</div>
+	<div style="display: flex; flex-flow: row wrap;">
+		<p>Type: </p>
+		@foreach (var type in Model.Types)
+		{
+			<p>@type.Type.Name </p>
+		}
+	</div>
+	<div style="display: flex; flex-flow: column;">
+		<p>Stats: </p>
+		@foreach (var stat in Model.Stats)
+		{
+			<div style="display: flex; flex-flow: row wrap;">
+				<p>@stat.Stat.Name: @stat.Base_stat</p>
+			</div>
+		}
+	</div>
+}
+
+@code {
+	private Pokemon? Model { get; set; }
+	private string Input = string.Empty;
+	private async Task Get(string input)
+	{
+		Model = await Helpers.HttpHelper.GetPokemonAsync(input);
+	}
+}
