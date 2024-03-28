@@ -1,18 +1,36 @@
-﻿@if (ChíldContent is not null)
+﻿@using PokedexApp.Shared.Models.Pokemonss
+@if (Model is not null)
 {
 	<div class="card">
-		@ChíldContent
+		<h3><b>@Model.Name</b></h3>
+		<div class="flex-row">
+			<img src="@Model.Sprites.front_default" alt="@Model.Name" style="width: 300px;" />
+		</div>
+		<p>Height: @Model.Height</p>
+		<p>Weight: @Model.Weight</p>
+		<div class="flex-row">
+			<p>Moves: @Model.Moves[0].Move!.Name, @Model.Moves[1].Move!.Name, @Model.Moves[2].Move!.Name</p>
+		</div>
+		<div class="flex-row">
+			<p>Type: </p>
+			@foreach (var type in Model.Types)
+			{
+				<p>@type.Type.Name </p>
+			}
+		</div>
+		<div class="flex-column">
+			<p>Stats: </p>
+			@foreach (var stat in Model.Stats)
+			{
+				<div class="flex-row">
+					<p>@stat.Stat.Name: @stat.Base_stat</p>
+				</div>
+			}
+		</div>
 	</div>
 }
 
-<style>
-	.card {
-		border: 2px solid #084196; /* var(--blue); */
-		background-color: #27a2c3; /* var(--light-blue); */
-	}
-</style>
-
 @code {
 	[Parameter]
-	public RenderFragment? ChíldContent { get; set; }
+	public Pokemon? Model { get; set; }
 }

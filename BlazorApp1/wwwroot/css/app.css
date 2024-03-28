@@ -18,3 +18,13 @@ button {
     background: linear-gradient( #ff3377 0%, #ff5588 50%, #ff77aa 100%);
     border: 2px solid #ff77aa;
 }
+
+.flex-row{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.flex-column {
+    display: flex;
+    flex-flow: column;
+}
