@@ -1,6 +1,6 @@
 ﻿.card {
     border: 2px solid var(--blue);
     background-color: var(--light-blue);
-    border: 2px solid #084196; /* var(--blue); */
-    background-color: #27a2c3; /* var(--light-blue); */
+
+    width: 300px;
 }

@@ -13,6 +13,10 @@ button {
     border-radius: 12px;
 }
 
+p{
+    margin: 0;
+}
+
 .btn-primary {
     color: #fff;
     background: linear-gradient( #ff3377 0%, #ff5588 50%, #ff77aa 100%);
