@@ -1,6 +1,6 @@
 :root {
     --blue: #084196;
-    --light-blue: #27a2c3;
+    --light-blue: #63dff3;
 }
 
 html, body {
@@ -31,4 +31,9 @@ p{
 .flex-column {
     display: flex;
     flex-flow: column;
+}
+
+.flex-start{
+    display: flex;
+    justify-content: flex-start;
 }

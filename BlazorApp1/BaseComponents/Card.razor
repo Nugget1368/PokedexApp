@@ -2,30 +2,42 @@
 @if (Model is not null)
 {
 	<div class="card">
-		<h3><b>@Model.Name</b></h3>
-		<div class="flex-row">
-			<img src="@Model.Sprites.front_default" alt="@Model.Name" style="width: 300px;" />
+		<div class="flex-column header-context">
+			<h3><b>@Model.Name</b></h3>
+			<hr />
+			<div class="flex-row pokemon-type">
+				<p>Type: </p>
+				@foreach (var type in Model.Types)
+				{
+					<p>@type.Type.Name </p>
+				}
+			</div>
 		</div>
-		<p>Height: @Model.Height</p>
-		<p>Weight: @Model.Weight</p>
-		<div class="flex-row">
-			<p>Moves: @Model.Moves[0].Move!.Name, @Model.Moves[1].Move!.Name, @Model.Moves[2].Move!.Name</p>
+		<div class="flex-row card-image">
+			<img src="@Model.Sprites.front_default" alt="@Model.Name" />
 		</div>
-		<div class="flex-row">
-			<p>Type: </p>
-			@foreach (var type in Model.Types)
-			{
-				<p>@type.Type.Name </p>
-			}
-		</div>
-		<div class="flex-column">
-			<p>Stats: </p>
-			@foreach (var stat in Model.Stats)
-			{
-				<div class="flex-row">
-					<p>@stat.Stat.Name: @stat.Base_stat</p>
-				</div>
-			}
+		<div class="flex-column card-context">
+			<div class="flex-column context">
+				<p>Height: @Model.Height</p>
+				<p>Weight: @Model.Weight</p>
+			</div>
+			<hr />
+			<div class="flex-column context">
+				<p>Moves:</p>
+				<p>@Model.Moves[0].Move!.Name</p>
+				<p>@Model.Moves[1].Move!.Name</p>
+				<p>@Model.Moves[2].Move!.Name</p>
+			</div>
+			<hr />
+			<div class="flex-column context">
+				<p>Stats: </p>
+				@foreach (var stat in Model.Stats)
+				{
+					<div class="flex-row">
+						<p>@stat.Stat.Name: @stat.Base_stat</p>
+					</div>
+				}
+			</div>
 		</div>
 	</div>
 }
