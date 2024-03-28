@@ -9,7 +9,7 @@ namespace PokedexApp.Client.Helpers
 
         public static async Task<Pokemon> GetPokemonAsync(string name)
         {
-            var response = await Client.GetAsync($"api/GetPokemon/{name}");
+            var response = await Client.GetAsync($"api/Pokemon/{name}");
             
             Console.WriteLine(":D " + response.StatusCode);
             var result = await response.Content.ReadFromJsonAsync<Pokemon>();

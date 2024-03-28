@@ -1,6 +1,6 @@
 @PokedexApp.Server_HostAddress = http://localhost:5264
 
-GET {{PokedexApp.Server_HostAddress}}/weatherforecast/
+GET {{PokedexApp.Server_HostAddress}}/api/Pokemon/pikachu
 Accept: application/json
 
 ###
