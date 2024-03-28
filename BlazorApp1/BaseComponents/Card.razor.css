@@ -1,0 +1,4 @@
+﻿.card{
+    border: 2px solid var(--blue);
+    background-color: var(--light-blue);
+}

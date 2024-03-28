@@ -1,0 +1,18 @@
+﻿@if (ChíldContent is not null)
+{
+	<div class="card">
+		@ChíldContent
+	</div>
+}
+
+<style>
+	.card {
+		border: 2px solid #084196; /* var(--blue); */
+		background-color: #27a2c3; /* var(--light-blue); */
+	}
+</style>
+
+@code {
+	[Parameter]
+	public RenderFragment? ChíldContent { get; set; }
+}
