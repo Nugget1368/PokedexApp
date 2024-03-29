@@ -18,7 +18,7 @@
 
 	protected override async Task OnInitializedAsync()
 	{
-		Model = await Helpers.HttpHelper.GetPokemonAsync("squirtle");
+		await Get("squirtle");
 	}
 
 	private async Task Get(string input)

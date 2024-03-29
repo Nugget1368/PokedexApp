@@ -1,4 +1,5 @@
 ﻿using PokedexApp.Shared.Models.Pokemons;
+using PokedexApp.Shared.Models.Ability;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,4 @@ public class Pokemon
 	public List<PokemonStat> Stats { get; set; }
 	public List<NamedAPIResource> Forms { get; set; }
 	public List<PokemonMove> Moves { get; set; }
-	
 }

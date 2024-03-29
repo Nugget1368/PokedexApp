@@ -21,14 +21,15 @@
 					<p>Height: @Model.Height", Weight: @Model.Weight lbs</p>
 				</div>
 
-			<div class="flex-column card-context">
-				<div class="flex-row pokemon-type">
-					<p>Type: </p>
-					@foreach (var type in Model.Types)
-					{
-						<p>@type.Type.Name </p>
-					}
+			<div class="flex-column bottom-card">
+				<hr />
+				<div class="context">
+					<p>Moves</p>
+					<p>@Model.Moves[0].Move.Name</p>
+					<p>@Model.Moves[1].Move.Name</p>
+					<p>@Model.Moves[2].Move.Name</p>
 				</div>
+				<hr />
 				@* 	<div class="flex-column context">
 			<p>Height: @Model.Height</p>
 			<p>Weight: @Model.Weight</p>
