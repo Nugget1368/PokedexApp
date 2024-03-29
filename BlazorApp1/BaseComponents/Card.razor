@@ -1,45 +1,59 @@
 ﻿@using PokedexApp.Shared.Models.Pokemonss
 @if (Model is not null)
 {
-	<div class="card">
-		<div class="flex-column header-context">
-			<h3><b>@Model.Name</b></h3>
-			<hr />
-			<div class="flex-row pokemon-type">
+	<div class="outline">
+		<div class="card">
+			<div class="top-card">
+				<div class="flex-row header-context">
+					<h3>@Model.Name</h3>
+					<h3 id="hp">@Model.Stats.FirstOrDefault(s => s.Stat.Name == "hp")!.Base_stat HP</h3>
+				</div>
+				<div class="flex-row card-image">
+					<img src="@Model.Sprites.front_default" alt="@Model.Name" />
+				</div>
+			</div>
+				<div class="flex-row subtitling">
 				<p>Type: </p>
-				@foreach (var type in Model.Types)
-				{
-					<p>@type.Type.Name </p>
-				}
-			</div>
-		</div>
-		<div class="flex-row card-image">
-			<img src="@Model.Sprites.front_default" alt="@Model.Name" />
-		</div>
-		<div class="flex-column card-context">
-			<div class="flex-column context">
-				<p>Height: @Model.Height</p>
-				<p>Weight: @Model.Weight</p>
-			</div>
-			<hr />
-			<div class="flex-column context">
-				<p>Moves:</p>
-				<p>@Model.Moves[0].Move!.Name</p>
-				<p>@Model.Moves[1].Move!.Name</p>
-				<p>@Model.Moves[2].Move!.Name</p>
+					@foreach (var type in Model.Types)
+					{
+						<p>@type.Type.Name, </p>
+					}
+					<p>Height: @Model.Height", Weight: @Model.Weight lbs</p>
+				</div>
+
+			<div class="flex-column card-context">
+				<div class="flex-row pokemon-type">
+					<p>Type: </p>
+					@foreach (var type in Model.Types)
+					{
+						<p>@type.Type.Name </p>
+					}
+				</div>
+				@* 	<div class="flex-column context">
+			<p>Height: @Model.Height</p>
+			<p>Weight: @Model.Weight</p>
 			</div>
 			<hr />
 			<div class="flex-column context">
-				<p>Stats: </p>
-				@foreach (var stat in Model.Stats)
-				{
-					<div class="flex-row">
-						<p>@stat.Stat.Name: @stat.Base_stat</p>
-					</div>
-				}
+			<p>Moves:</p>
+			<p>@Model.Moves[0].Move!.Name</p>
+			<p>@Model.Moves[1].Move!.Name</p>
+			<p>@Model.Moves[2].Move!.Name</p>
+			</div>
+			<hr />
+			<div class="flex-column context">
+			<p>Stats: </p>
+			@foreach (var stat in Model.Stats)
+			{
+			<div class="flex-row">
+			<p>@stat.Stat.Name: @stat.Base_stat</p>
+			</div>
+			}
+			</div> *@
 			</div>
 		</div>
 	</div>
+
 }
 @code {
 	[Parameter]

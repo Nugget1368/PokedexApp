@@ -15,6 +15,12 @@
 @code {
 	private Pokemon? Model { get; set; }
 	private string Input = string.Empty;
+
+	protected override async Task OnInitializedAsync()
+	{
+		Model = await Helpers.HttpHelper.GetPokemonAsync("squirtle");
+	}
+
 	private async Task Get(string input)
 	{
 		Model = await Helpers.HttpHelper.GetPokemonAsync(input);

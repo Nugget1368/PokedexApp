@@ -1,6 +1,14 @@
 :root {
     --blue: #084196;
     --light-blue: #63dff3;
+
+    --base: #c0c0c0;
+    --base-light: #dadada;
+    --base-lighter: #e6e6e6;
+    --base-dark: #a7a7a7;
+    --base-darker: #9a9a9a;
+
+    --yellow: #ffd500;
 }
 
 html, body {
