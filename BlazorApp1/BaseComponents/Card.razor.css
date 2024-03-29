@@ -14,28 +14,27 @@ p, h3 {
 }
 
 #hp{
-    color: var(--base-darker);
+    color: darkred;
 }
 
-.outline{
+.card{
     width: fit-content;
     background-color: var(--yellow);
     border: 1px solid #363636;
     border-radius: 8px;
     padding: 7px;
+    margin: 2px;
     /*transform: scale(0.5);*/
 }
 
-.card {
+.card-context {
     display: flex;
     flex-flow: column;
     align-items: center;
-
     border: 1px solid #ffffff;
-    background-color: var(--base-light);
-
+    /*background-color: var(--base-light);*/
+    background: linear-gradient( 45deg, var(--base) 0%, var(--base-dark) 25%, var(--base-lighter) 50%, var(--base-light) 75%, var(--base-darker) 100%);
     width: 280px;
-
 }
 
 .top-card{

@@ -1,8 +1,8 @@
 ﻿@using PokedexApp.Shared.Models.Pokemonss
 @if (Model is not null)
 {
-	<div class="outline">
-		<div class="card">
+	<div class="card">
+		<div class="card-context">
 			<div class="top-card">
 				<div class="flex-row header-context">
 					<h3>@Model.Name</h3>
@@ -30,27 +30,6 @@
 					<p>@Model.Moves[2].Move.Name</p>
 				</div>
 				<hr />
-				@* 	<div class="flex-column context">
-			<p>Height: @Model.Height</p>
-			<p>Weight: @Model.Weight</p>
-			</div>
-			<hr />
-			<div class="flex-column context">
-			<p>Moves:</p>
-			<p>@Model.Moves[0].Move!.Name</p>
-			<p>@Model.Moves[1].Move!.Name</p>
-			<p>@Model.Moves[2].Move!.Name</p>
-			</div>
-			<hr />
-			<div class="flex-column context">
-			<p>Stats: </p>
-			@foreach (var stat in Model.Stats)
-			{
-			<div class="flex-row">
-			<p>@stat.Stat.Name: @stat.Base_stat</p>
-			</div>
-			}
-			</div> *@
 			</div>
 		</div>
 	</div>
