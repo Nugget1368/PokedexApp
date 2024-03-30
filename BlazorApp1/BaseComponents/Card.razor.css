@@ -1,0 +1,121 @@
+﻿hr{
+    border: 2px solid var(--base-darker);
+    width: 100%;
+    margin: 5px 0px;
+}
+
+h3{
+    margin: 0;
+    font-weight: 700;
+}
+
+p, h3 {
+    text-transform: capitalize;
+    margin: 0px 2px;
+}
+
+#hp{
+    color: darkred;
+}
+
+.card{
+    width: fit-content;
+    background-color: var(--yellow);
+    border: 1px solid #363636;
+    border-radius: 8px;
+    padding: 7px;
+    margin: 2px;
+    /*transform: scale(0.5);*/
+}
+
+.card-context {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    border: 1px solid #ffffff;
+    background: linear-gradient( 45deg, var(--base) 0%, var(--base-dark) 25%, var(--base-lighter) 50%, var(--base-light) 75%, var(--base-darker) 100%);
+    background-color: var(--base-light);
+    width: 280px;
+}
+
+.top-card{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 80%;
+}
+
+.header-context {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin: 5px 0px;
+}
+
+.card-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 7px;
+    border-style: solid;
+    border-image: linear-gradient(120deg, var(--gold-light), var(--gold-lighter), #ffffff, var(--gold), var(--gold-darker)) 3;
+    width: 100%;
+    background-color: var(--base-light);
+    background-image: url(../Images/grass-field.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.card-image img{
+    width: 100%;
+}
+
+.subtitling {
+    border: 3px solid var(--gold);
+    border-left: 4px solid var(--gold);
+    border-bottom: 3px solid var(--gold-darker);
+    border-right: 4px solid var(--gold-darker);
+    background-color: var(--yellow);
+    width: 90%;
+    font-size: 12px;
+    font-weight: 600;
+    justify-content: center;
+    margin: 5px;
+}
+
+.bottom-card {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 90%;
+    margin: 10px 0px;
+}
+
+    .bottom-card hr {
+        border-width: 1px;
+        width: 100%;
+    }
+
+.context
+{
+    font-size: 12px;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.context p:first-child
+{
+    font-size: 14px;
+    font-weight:600;
+}
+
+
+
+.pokemon-type {
+    color: var(--base-darker);
+    font-weight: 700;
+}
