@@ -11,6 +11,7 @@ h3{
 
 p, h3 {
     text-transform: capitalize;
+    margin: 0px 2px;
 }
 
 #hp{
