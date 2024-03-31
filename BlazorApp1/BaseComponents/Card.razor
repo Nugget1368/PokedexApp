@@ -12,22 +12,28 @@
 					<img src="@Model.Sprites.front_default" alt="@Model.Name" />
 				</div>
 			</div>
-				<div class="flex-row subtitling">
-				<p>Type:</p>
+			<div class="flex-row subtitling">
+				@if (Model.Types.Count > 0)
+				{
+					<p>Type:</p>
 					@foreach (var type in Model.Types)
 					{
 						<p>@type.Type.Name,</p>
 					}
-					<p>Height: @Model.Height", Weight: @Model.Weight lbs</p>
-				</div>
-
+				}
+				<p>Height: @Model.Height", Weight: @Model.Weight lbs</p>
+			</div>
 			<div class="flex-column bottom-card">
 				<hr />
 				<div class="context">
 					<p>Moves</p>
-					<p>@Model.Moves[0].Move.Name</p>
-					<p>@Model.Moves[1].Move.Name</p>
-					<p>@Model.Moves[2].Move.Name</p>
+					@for(int i = 0; i < 3; i++)
+					{
+						@if(Model.Moves.Count > i)
+						{
+							<p>@Model.Moves[i].Move!.Name</p>	
+						}
+					}
 				</div>
 				<hr />
 			</div>

@@ -1,24 +1,32 @@
-﻿using PokedexApp.Shared.Models.Pokemonss;
+﻿using PokedexApp.Shared.Models;
+using PokedexApp.Shared.Models.Pokemonss;
 using System.Net;
 namespace PokedexApp.Server.Services;
 
 public class Api_Service
 {
 	public HttpClient Client { get; set; } = new() { BaseAddress = new Uri("https://pokeapi.co/api/v2/") };
-	
 
-	public async Task<Pokemon> GetPokemonAsync(string name)
+
+	public async Task<ResultModel<Pokemon>> GetPokemonAsync(string name)
 	{
-		//await Client.GetStringAsync($"{Client.BaseAddress}pokemon/{name}");
-		var result = await Client.GetFromJsonAsync<Pokemon>($"{Client.BaseAddress}pokemon/{name}");
-		Console.WriteLine(result.Name);
-		if(result != null)
+		var result = new ResultModel<Pokemon>();
+		try
 		{
+			result.Result = await Client.GetFromJsonAsync<Pokemon>($"{Client.BaseAddress}pokemon/{name}");
+			if (result != null)
+			{
+				result.Success = true;
+				return result;
+			}
+			result.Success = false;
 			return result;
 		}
-		else
+		catch (Exception ex)
 		{
-			throw new Exception("No Pokemon Found :/");
+			result.Success = false;
+			result.ResultMessage = ex.Message;
+			return result;
 		}
 	}
 }
