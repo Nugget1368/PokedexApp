@@ -29,7 +29,10 @@
 					<p>Moves</p>
 					@for(int i = 0; i < 3; i++)
 					{
-						<p>@Model.Moves[i].Move!.Name</p>	
+						@if(Model.Moves.Count > i)
+						{
+							<p>@Model.Moves[i].Move!.Name</p>	
+						}
 					}
 				</div>
 				<hr />
