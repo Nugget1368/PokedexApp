@@ -23,6 +23,10 @@
 
 	private async Task Get(string input)
 	{
-		Model = await Helpers.HttpHelper.GetPokemonAsync(input);
+		var result = await Helpers.HttpHelper.GetPokemonAsync(input);
+		if(result.Success == true)
+		{
+			Model = result.Result;
+		}
 	}
 }

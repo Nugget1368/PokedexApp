@@ -4,3 +4,8 @@ GET {{PokedexApp.Server_HostAddress}}/api/Pokemon/pikachu
 Accept: application/json
 
 ###
+
+GET {{PokedexApp.Server_HostAddress}}/api/Pokemon/NotAPokemonName
+Accept: application/json
+
+###
