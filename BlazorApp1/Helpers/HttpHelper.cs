@@ -1,6 +1,5 @@
 ﻿using PokedexApp.Shared.Models;
 using PokedexApp.Shared.Models.Pokemonss;
-using PokedexApp.Shared.Models.Wrappers;
 using System.Net.Http.Json;
 
 namespace PokedexApp.Client.Helpers

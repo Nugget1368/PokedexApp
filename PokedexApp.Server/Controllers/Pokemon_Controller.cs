@@ -2,7 +2,6 @@
 using PokedexApp.Server.Services;
 using PokedexApp.Shared.Models;
 using PokedexApp.Shared.Models.Pokemonss;
-using PokedexApp.Shared.Models.Wrappers;
 
 namespace PokedexApp.Server.Controllers;
 

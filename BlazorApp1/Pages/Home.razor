@@ -8,7 +8,7 @@
 <button class="btn btn-primary" @onclick="async() => await Get(Input)">Find</button>
 
 <div class="flex-row">
-	@if (Models is not null)
+	@if (Models.Count > 0)
 	{
 		foreach (var model in Models)
 		{
@@ -18,10 +18,15 @@
 
 </div>
 
+<button class="btn-primary" @onclick=GetListPokemons>More</button>
+
 @code {
 	private Pokemon? Model { get; set; }
-	private List<Pokemon> Models { get; set; }
+	private List<Pokemon> Models { get; set; } = new();
 	private string Input = string.Empty;
+
+	private int limit { get; set; } = 9;
+	private int offset { get; set; } = 1;
 
 	protected override async Task OnInitializedAsync()
 	{
@@ -41,10 +46,11 @@
 
 	private async Task GetListPokemons()
 	{
-		var result = await HttpHelper.GetListPokemonsAsync(9, 1);
+		var result = await HttpHelper.GetListPokemonsAsync(limit, offset);
+		offset += limit;
 		if (result.Success)
 		{
-			Models = result.Result;
+			Models.AddRange(result.Result);
 		}
 	}
 }

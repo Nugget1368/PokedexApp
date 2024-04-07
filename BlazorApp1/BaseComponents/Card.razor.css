@@ -19,6 +19,8 @@ p, h3 {
 }
 
 .card{
+    display: flex;
+    align-items:center;
     width: fit-content;
     background-color: var(--yellow);
     border: 1px solid #363636;
@@ -36,6 +38,7 @@ p, h3 {
     background: linear-gradient( 45deg, var(--base) 0%, var(--base-dark) 25%, var(--base-lighter) 50%, var(--base-light) 75%, var(--base-darker) 100%);
     background-color: var(--base-light);
     width: 280px;
+    height: 100%;
 }
 
 .top-card{
