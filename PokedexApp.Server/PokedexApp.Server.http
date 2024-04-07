@@ -9,3 +9,8 @@ GET {{PokedexApp.Server_HostAddress}}/api/Pokemon/NotAPokemonName
 Accept: application/json
 
 ###
+
+GET {{PokedexApp.Server_HostAddress}}/api/Pokemons?limit=5&offset=10
+Accept: application/json
+
+###

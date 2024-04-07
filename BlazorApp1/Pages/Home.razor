@@ -7,26 +7,50 @@
 <input @bind="Input" placeholder="Pokemon" />
 <button class="btn btn-primary" @onclick="async() => await Get(Input)">Find</button>
 
-@if (Model != null)
-{
-	<Card Model="Model"/>
-}
+<div class="flex-row">
+	@if (Models.Count > 0)
+	{
+		foreach (var model in Models)
+		{
+			<Card Model="model" />
+		}
+	}
+
+</div>
+
+<button class="btn-primary" @onclick=GetListPokemons>More</button>
 
 @code {
 	private Pokemon? Model { get; set; }
+	private List<Pokemon> Models { get; set; } = new();
 	private string Input = string.Empty;
+
+	private int limit { get; set; } = 9;
+	private int offset { get; set; } = 1;
 
 	protected override async Task OnInitializedAsync()
 	{
-		await Get("squirtle");
+		await GetListPokemons();
 	}
 
 	private async Task Get(string input)
 	{
 		var result = await Helpers.HttpHelper.GetPokemonAsync(input);
-		if(result.Success == true)
+		if (result.Success == true)
 		{
 			Model = result.Result;
+			Models.Clear();
+			Models.Add(Model);
+		}
+	}
+
+	private async Task GetListPokemons()
+	{
+		var result = await HttpHelper.GetListPokemonsAsync(limit, offset);
+		offset += limit;
+		if (result.Success)
+		{
+			Models.AddRange(result.Result);
 		}
 	}
 }
