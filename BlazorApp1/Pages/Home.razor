@@ -49,7 +49,7 @@
 		var wrapper = new NumberWrapper();
 		wrapper.FirstValue = 1;
 		wrapper.SecondValue = 10;
-		var result = await HttpHelper.GetListPokemonsAsync(wrapper);
+		var result = await HttpHelper.GetListPokemonsAsync(9, 1);
 		if (result.Success)
 		{
 			Models = result.Result;
