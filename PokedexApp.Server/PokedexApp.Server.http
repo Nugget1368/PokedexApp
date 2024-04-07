@@ -9,3 +9,13 @@ GET {{PokedexApp.Server_HostAddress}}/api/Pokemon/NotAPokemonName
 Accept: application/json
 
 ###
+
+GET {{PokedexApp.Server_HostAddress}}/api/Pokemons
+Accept: application/json
+
+###
+
+GET {{PokedexApp.Server_HostAddress}}/api/GetMore
+Accept: application/json
+
+###
