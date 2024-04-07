@@ -21,14 +21,7 @@ public class Pokemon_Controller : ControllerBase
 	[HttpGet]
 	public async Task<ResultModel<List<Pokemon>>> Pokemons([FromQuery]int limit, [FromQuery]int offset)
 	{
-		var result = await Service.GetMore(limit, offset);
+		var result = await Service.GetPokemonListAsync(limit, offset);
 		return result;
 	}
-
-	//[HttpGet]
-	//public async Task<ResultModel<List<Pokemon>>> Pokemons()
-	//{
-	//	var result = await Service.GetListPokemonsAsync();
-	//	return result;
-	//}
 }

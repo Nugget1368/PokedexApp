@@ -1,6 +1,5 @@
 ﻿@page "/"
 @using PokedexApp.Shared.Models.Pokemonss
-@using PokedexApp.Shared.Models.Wrappers
 
 <PageTitle>Home</PageTitle>
 
@@ -8,10 +7,6 @@
 <input @bind="Input" placeholder="Pokemon" />
 <button class="btn btn-primary" @onclick="async() => await Get(Input)">Find</button>
 
-@* @if (Model != null)
-{
-	<Card Model="Model"/>
-} *@
 <div class="flex-row">
 	@if (Models is not null)
 	{
@@ -46,9 +41,6 @@
 
 	private async Task GetListPokemons()
 	{
-		var wrapper = new NumberWrapper();
-		wrapper.FirstValue = 1;
-		wrapper.SecondValue = 10;
 		var result = await HttpHelper.GetListPokemonsAsync(9, 1);
 		if (result.Success)
 		{

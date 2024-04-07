@@ -28,17 +28,9 @@ namespace PokedexApp.Client.Helpers
 		/// <returns>List of Pokemons</returns>
 		public static async Task<ResultModel<List<Pokemon>>> GetListPokemonsAsync(int limit, int offset)
 		{
-			/*BEHÖVS skicka två siffror*/
 			var response = await Client.GetAsync($"api/Pokemons?limit={limit}&offset={offset}");
 			var result = await response.Content.ReadFromJsonAsync<ResultModel<List<Pokemon>>>();
 			return result!;
 		}
-
-		//public static async Task<ResultModel<List<Pokemon>>> GetListPokemonsAsync()
-		//{
-		//	var response = await Client.GetAsync($"api/Pokemons");
-		//	var result = await response.Content.ReadFromJsonAsync<ResultModel<List<Pokemon>>>();
-		//	return result!;
-		//}
 	}
 }
