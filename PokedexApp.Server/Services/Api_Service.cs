@@ -8,7 +8,11 @@ public class Api_Service
 {
 	public HttpClient Client { get; set; } = new() { BaseAddress = new Uri("https://pokeapi.co/api/v2/") };
 
-
+	/// <summary>
+	/// Gets 1 pokemon
+	/// </summary>
+	/// <param name="name">Name of the pokemon</param>
+	/// <returns>The pokemon requested</returns>
 	public async Task<ResultModel<Pokemon>> GetPokemonAsync(string name)
 	{
 		var result = new ResultModel<Pokemon>();
@@ -30,7 +34,11 @@ public class Api_Service
 			return result;
 		}
 	}
-
+	/// <summary>
+	/// Gets 1 pokemon depending on id
+	/// </summary>
+	/// <param name="id">The id of the pokemon</param>
+	/// <returns>The pokemon requested</returns>
 	public async Task<ResultModel<Pokemon>> GetPokemonAsync(int id)
 	{
 		var result = new ResultModel<Pokemon>();
@@ -52,7 +60,12 @@ public class Api_Service
 			return result;
 		}
 	}
-
+	/// <summary>
+	/// Gets a list of pokemons
+	/// </summary>
+	/// <param name="limit">Amount of pokemons</param>
+	/// <param name="offset">From which pokemon-id should the loop start from</param>
+	/// <returns>List of Pokemons</returns>
 	public async Task<ResultModel<List<Pokemon>>> GetPokemonListAsync(int limit, int offset)
 	{
 		var result = new ResultModel<List<Pokemon>>();
