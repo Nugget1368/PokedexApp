@@ -1,0 +1,16 @@
+﻿@using PokedexApp.Shared.Models.Pokemonss
+
+<div class="flex-row header-bar">
+	<div class="left-row">
+		<h1><b>My</b>Pokedex</h1>
+	</div>
+	<div class="right-row">
+		<Searchbar Update="Update" />
+	</div>
+
+</div>
+
+@code {
+	[Parameter]
+	public EventCallback<List<Pokemon>> Update{ get; set; }
+}

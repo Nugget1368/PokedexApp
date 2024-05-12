@@ -1,0 +1,18 @@
+﻿.header-bar {
+    display: flex;
+    position: fixed;
+    overflow: hidden;
+    box-sizing:  border-box;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: darkred;
+    color: ghostwhite;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1{
+    margin: 0;
+}

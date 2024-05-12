@@ -1,0 +1,22 @@
+﻿@using PokedexApp.Shared.Models.Pokemonss
+
+<input @bind="Input" placeholder="Find Pokemon" />
+<button class="btn btn-primary" @onclick="async() => await Get(Input)">Search</button>
+
+
+@code {
+	[Parameter]
+	public EventCallback<List<Pokemon>> Update{ get; set; }
+	private string Input = string.Empty;
+
+	private async Task Get(string input)
+	{
+		var pokemons = new List<Pokemon>();
+		var result = await Helpers.HttpHelper.GetPokemonAsync(input);
+		if (result.Success == true)
+		{
+			pokemons.Add(result.Result!);
+			await Update.InvokeAsync(pokemons);
+		}
+	}
+}

@@ -1,11 +1,8 @@
 ﻿@page "/"
 @using PokedexApp.Shared.Models.Pokemonss
 
-<PageTitle>Home</PageTitle>
-
-<p><b>Find your Pokemon</b></p>
-<input @bind="Input" placeholder="Pokemon" />
-<button class="btn btn-primary" @onclick="async() => await Get(Input)">Find</button>
+<PageTitle>My Pokedex</PageTitle>
+<Header Update="Update" />
 
 <div class="flex-row">
 	@if (Models.Count > 0)
@@ -21,10 +18,7 @@
 <button class="btn-primary" @onclick=GetListPokemons>More</button>
 
 @code {
-	private Pokemon? Model { get; set; }
 	private List<Pokemon> Models { get; set; } = new();
-	private string Input = string.Empty;
-
 	private int limit { get; set; } = 9;
 	private int offset { get; set; } = 1;
 
@@ -33,24 +27,26 @@
 		await GetListPokemons();
 	}
 
-	private async Task Get(string input)
-	{
-		var result = await Helpers.HttpHelper.GetPokemonAsync(input);
-		if (result.Success == true)
-		{
-			Model = result.Result;
-			Models.Clear();
-			Models.Add(Model);
-		}
-	}
-
 	private async Task GetListPokemons()
 	{
 		var result = await HttpHelper.GetListPokemonsAsync(limit, offset);
 		offset += limit;
 		if (result.Success)
 		{
-			Models.AddRange(result.Result);
+			Models.AddRange(result.Result!);
+		}
+	}
+
+	private void Update(List<Pokemon> pokemons)
+	{
+		if (pokemons is not null)
+		{
+			Models.Clear();
+			foreach (var pokemon in pokemons)
+			{
+				Models.Add(pokemon);
+			}
+			StateHasChanged();
 		}
 	}
 }
