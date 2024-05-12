@@ -4,7 +4,7 @@ using System.Net.Http.Json;
 
 namespace PokedexApp.Client.Helpers
 {
-    public static class HttpHelper
+    public static class HttpHelper<T>
     {
         public static HttpClient Client { get; set; } = new() { BaseAddress = new Uri("https://localhost:7173") };
 
@@ -12,11 +12,11 @@ namespace PokedexApp.Client.Helpers
 		/// Gets 1 pokemon
 		/// </summary>
 		/// <param name="name">NAme of the pokemon</param>
-		/// <returns>The pokemon requested</returns>
-        public static async Task<ResultModel<Pokemon>> GetPokemonAsync(string name)
+		/// <returns>The pokemon requested</returns>		
+		public static async Task<ResultModel<T>> GetPokemonAsync(string name)
         {
             var response = await Client.GetAsync($"api/Pokemon/{name}");
-            var result = await response.Content.ReadFromJsonAsync<ResultModel<Pokemon>>();
+            var result = await response.Content.ReadFromJsonAsync<ResultModel<T>>();
             return result!;
         }
 		/// <summary>

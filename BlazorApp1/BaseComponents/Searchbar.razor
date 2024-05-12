@@ -1,22 +1,38 @@
-﻿@using PokedexApp.Shared.Models.Pokemonss
+﻿@using PokedexApp.Shared.Models
+@using PokedexApp.Shared.Models.Pokemonss
+@typeparam Titem
 
-<input @bind="Input" placeholder="Find Pokemon" />
-<button class="btn btn-primary" @onclick="async() => await Get(Input)">Search</button>
+<input @bind="@Input" @bind:after="UpdateInput" placeholder="@Placeholder" />
+<button class="btn btn-primary" @onclick="OnSearch">Search</button>
 
 
 @code {
 	[Parameter]
-	public EventCallback<List<Pokemon>> Update{ get; set; }
-	private string Input = string.Empty;
+	public EventCallback<Titem> Update { get; set; }
+	[Parameter]
+	public Func<Task<ResultModel<Titem>>>? GetAsync { get; set; }
+	[Parameter]
+	public string Placeholder { get; set; } = string.Empty;
+	[Parameter]
+	public string Input { get; set; } = string.Empty;
+	[Parameter]
+	public EventCallback<string> InputUpdated { get; set; }
 
-	private async Task Get(string input)
+	public async Task OnSearch()
 	{
-		var pokemons = new List<Pokemon>();
-		var result = await Helpers.HttpHelper.GetPokemonAsync(input);
-		if (result.Success == true)
+		await UpdateInput();
+		if (GetAsync is not null)
 		{
-			pokemons.Add(result.Result!);
-			await Update.InvokeAsync(pokemons);
+			var result = await GetAsync();
+			if (result.Success && result.Result is not null)
+			{
+				await Update.InvokeAsync(result.Result);
+			}
 		}
+	}
+
+	public async Task UpdateInput()
+	{
+		await InputUpdated.InvokeAsync(Input);
 	}
 }

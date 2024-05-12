@@ -2,7 +2,7 @@
 @using PokedexApp.Shared.Models.Pokemonss
 
 <PageTitle>My Pokedex</PageTitle>
-<Header Update="Update" />
+<Header T="Pokemon" Update="Update" />
 
 <div class="flex-row">
 	@if (Models.Count > 0)
@@ -12,7 +12,6 @@
 			<Card Model="model" />
 		}
 	}
-
 </div>
 
 <button class="btn-primary" @onclick=GetListPokemons>More</button>
@@ -29,7 +28,7 @@
 
 	private async Task GetListPokemons()
 	{
-		var result = await HttpHelper.GetListPokemonsAsync(limit, offset);
+		var result = await HttpHelper<List<Pokemon>>.GetListPokemonsAsync(limit, offset);
 		offset += limit;
 		if (result.Success)
 		{
@@ -37,15 +36,12 @@
 		}
 	}
 
-	private void Update(List<Pokemon> pokemons)
+	private void Update(Pokemon pokemon)
 	{
-		if (pokemons is not null)
+		if (pokemon is not null)
 		{
 			Models.Clear();
-			foreach (var pokemon in pokemons)
-			{
-				Models.Add(pokemon);
-			}
+			Models.Add(pokemon);
 			StateHasChanged();
 		}
 	}
