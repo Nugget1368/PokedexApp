@@ -28,7 +28,7 @@
 
 	private async Task GetListPokemons()
 	{
-		var result = await HttpHelper<List<Pokemon>>.GetListPokemonsAsync(limit, offset);
+		var result = await HttpHelper.GetListPokemonsAsync(limit, offset);
 		offset += limit;
 		if (result.Success)
 		{
