@@ -6,19 +6,19 @@
 		<h1><b>My</b>Pokedex</h1>
 	</div>
 	<div class="right-row">
-		<Searchbar Titem="Pokemon" Input="@Input" Placeholder="Find Pokemon..." Update="UpdateAsync" InputUpdated="UpdateInput" GetAsync="Get" />
+		<Searchbar Titem="Pokemon" Placeholder="Find Pokemon..." Refresh="RefreshAsync" InputUpdated="UpdateInput" GetAsync="Get" />
 	</div>
 </div>
 
 @code {
 	[Parameter]
-	public EventCallback<Pokemon> Update{ get; set; }
+	public EventCallback<List<Pokemon>> Refresh { get; set; }
 	private string Input { get; set; } = string.Empty;
 
-	private async Task UpdateAsync(Pokemon result)
+	private async Task RefreshAsync(Pokemon pokemon)
 	{
-		var test = result;
-		await Update.InvokeAsync(test);
+		var pokemons = new List<Pokemon> { pokemon };
+		await Refresh.InvokeAsync(pokemons);
 	}
 
 	public async Task<ResultModel<Pokemon>> Get()

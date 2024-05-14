@@ -2,21 +2,20 @@
 @using PokedexApp.Shared.Models.Pokemonss
 @typeparam Titem
 
-<input @bind="@Input" @bind:after="UpdateInput" placeholder="@Placeholder" />
+<input @bind="@Input" placeholder="@Placeholder" />
 <button class="btn btn-primary" @onclick="OnSearch">Search</button>
 
 
 @code {
 	[Parameter]
-	public EventCallback<Titem> Update { get; set; }
+	public EventCallback<Titem> Refresh { get; set; }
 	[Parameter]
 	public Func<Task<ResultModel<Titem>>>? GetAsync { get; set; }
 	[Parameter]
-	public string Placeholder { get; set; } = string.Empty;
-	[Parameter]
-	public string Input { get; set; } = string.Empty;
-	[Parameter]
 	public EventCallback<string> InputUpdated { get; set; }
+	[Parameter]
+	public string Placeholder { get; set; } = "...";
+	public string Input { get; set; } = string.Empty;
 
 	public async Task OnSearch()
 	{
@@ -26,7 +25,7 @@
 			var result = await GetAsync();
 			if (result.Success && result.Result is not null)
 			{
-				await Update.InvokeAsync(result.Result);
+				await Refresh.InvokeAsync(result.Result);
 			}
 		}
 	}

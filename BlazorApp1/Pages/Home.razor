@@ -2,9 +2,9 @@
 @using PokedexApp.Shared.Models.Pokemonss
 
 <PageTitle>My Pokedex</PageTitle>
-<Header Update="Update" />
+<Header Refresh="UpdatePokemons" />
 
-<div class="flex-row">
+<div class="flex-row main-content">
 	@if (Models.Count > 0)
 	{
 		foreach (var model in Models)
@@ -36,12 +36,12 @@
 		}
 	}
 
-	private void Update(Pokemon pokemon)
+	private void UpdatePokemons(List<Pokemon> pokemons)
 	{
-		if (pokemon is not null)
+		if (pokemons is not null)
 		{
 			Models.Clear();
-			Models.Add(pokemon);
+			Models.AddRange(pokemons);
 			StateHasChanged();
 		}
 	}
