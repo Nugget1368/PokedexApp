@@ -35,6 +35,21 @@ p{
     margin: 0;
 }
 
+.material-symbols-outlined {
+    font-size: 12px;
+}
+
+.symbol-size-small {
+    font-size: 5px;
+}
+
+.symbol-size-medium {
+    font-size: 12px;
+}
+.symbol-size-large {
+    font-size: 18px;
+}
+
 .btn-primary {
     color: #fff;
     background: linear-gradient( #ff3377 0%, #ff5588 50%, #ff77aa 100%);

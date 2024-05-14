@@ -1,4 +1,6 @@
 ﻿.search-bar{
+    display: flex;
+    align-items: center;
     box-sizing: border-box;
     background-color: var(--white);
     padding-left: 3px;
@@ -13,8 +15,8 @@ input{
 }
 
 .btn{
-    font-size:12px;
-    padding: 5px;
+    display: flex;
+    padding: 3px;
     border: 0px;
     border-left: 1px solid var(--white-dark);
     border-radius: 0px 8px 8px 0px;

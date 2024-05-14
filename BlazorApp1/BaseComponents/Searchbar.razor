@@ -4,7 +4,11 @@
 
 <div class="search-bar">
 	<input @bind="@Input" placeholder="@Placeholder" />
-	<button class="btn" @onclick="OnSearch">Search</button>
+	<button class="btn" @onclick="OnSearch">
+		<span class="material-symbols-outlined symbol-size-medium">
+			search
+		</span>
+	</button>
 </div>
 
 
