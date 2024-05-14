@@ -2,8 +2,10 @@
 @using PokedexApp.Shared.Models.Pokemonss
 @typeparam Titem
 
-<input @bind="@Input" placeholder="@Placeholder" />
-<button class="btn btn-primary" @onclick="OnSearch">Search</button>
+<div class="search-bar">
+	<input @bind="@Input" placeholder="@Placeholder" />
+	<button class="btn" @onclick="OnSearch">Search</button>
+</div>
 
 
 @code {

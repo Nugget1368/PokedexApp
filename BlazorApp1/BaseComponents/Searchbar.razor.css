@@ -1,0 +1,28 @@
+﻿.search-bar{
+    box-sizing: border-box;
+    background-color: var(--white);
+    padding-left: 3px;
+    border: 2px solid var(--white-dark);
+    border-radius: 10px;
+}
+
+input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.btn{
+    font-size:12px;
+    padding: 5px;
+    border: 0px;
+    border-left: 1px solid var(--white-dark);
+    border-radius: 0px 8px 8px 0px;
+    background-color:transparent;
+}
+
+.btn:hover{
+    transition: 0.5s;
+    background-color: var(--pokemon-red);
+    color: var(--white);
+}
