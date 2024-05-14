@@ -13,6 +13,12 @@
     align-items: center;
 }
 
-h1{
+h1 {
+    font-family: Aladin, system-ui;
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--pokemon-yellow);
     margin: 0;
+    -webkit-text-stroke: 1px var(--pokemon-blue);
+    text-shadow:  4px 4px 0px var(--pokemon-blue),3px 3px 0px var(--pokemon-blue),2px 2px 0px var(--pokemon-blue),2px 5px 0px var(--pokemon-blue);
 }
