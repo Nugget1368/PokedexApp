@@ -2,6 +2,7 @@
     --pokemon-red: #ff0000;
     --pokemon-red-dark: #cc0000;
     --pokemon-blue: #3b4cca;
+    --pokemon-blue-dark: #1729b4;
     --pokemon-yellow: #ffde00;
     --pokemon-yellow-dark: #b3a125;
     --white: #f6f4eb;
@@ -19,6 +20,11 @@
     --gold-lighter: #ffd453;
     --gold-dark: #ecb100;
     --gold-darker: #d29e00;
+}
+
+@font-face{
+    font-family: "pokemon-solid";
+    src: url('../Fonts/Pokemon_Solid.ttf');
 }
 
 html, body {
