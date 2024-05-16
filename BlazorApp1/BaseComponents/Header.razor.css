@@ -60,10 +60,30 @@
     height: 100%;
     width: 20%;
     min-width: fit-content;
+    max-width: 350px;
     color: var(--white);
     background-color: var(--pokemon-blue);
     border-right: 2px solid var(--white);
     border-left: 2px solid var(--white);
+    animation: slide .15s ease;
+}
+
+@keyframes slide{
+    0%{
+        transform: translateX(-100%);
+    }
+    25% {
+        transform: translateX(-75%);
+    }
+    50% {
+        transform: translateX(-50%);
+    }
+    75% {
+        transform: translateX(-25%);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 .sidebar-content {
