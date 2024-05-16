@@ -18,17 +18,19 @@ input{
     outline: none;
 }
 
-.btn{
+a {
+    transition: 0.35s;
+    color: #000000;
     display: flex;
     padding: 3px;
     border: 0px;
     border-left: 1px solid var(--white-dark);
     border-radius: 0px 8px 8px 0px;
-    background-color:transparent;
+    background-color: transparent;
 }
 
-.btn:hover{
-    transition: 0.5s;
-    background-color: var(--pokemon-red);
+a:hover{
+    transition: 0.35s;
+    background-color: var(--pokemon-red-light);
     color: var(--white);
 }

@@ -25,6 +25,7 @@
     --font-size-small: 15px;
     --font-size-medium: 22px;
     --font-size-big: 27px;
+    --text-shadow-default: 0px 2px 3px rgb(0, 0, 0, 0.50);
 }
 
 @font-face{
@@ -37,6 +38,7 @@ html, body {
 }
 
 button {
+    cursor: pointer;
     padding: 8px;
     font-size: 18px;
     border-radius: 12px;
@@ -44,6 +46,18 @@ button {
 
 p{
     margin: 0;
+}
+
+a:hover{
+    cursor:pointer;
+}
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
 }
 
 .material-symbols-outlined {
@@ -80,6 +94,11 @@ p{
 .flex-start{
     display: flex;
     justify-content: flex-start;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: end;
 }
 
 .main-content{

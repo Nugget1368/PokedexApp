@@ -3,13 +3,9 @@
 
 <div class="flex-row header-bar">
 	<div class="row-item left-row">
-		<span class="material-symbols-outlined menu-symbol">
+		<a class="material-symbols-outlined menu-symbol" @onclick=Open>
 			menu
-		</span>
-		@* <a>Home</a>
-		<a>Pokemon</a>
-		<a>Berries</a>
-		<a>About</a> *@
+		</a>
 	</div>
 	<div class="row-item middle-row">
 		<a href="/" class="title">MyPokédex</a>
@@ -19,11 +15,30 @@
 		<Searchbar Titem="Pokemon" Placeholder="Find Pokemon..." Refresh="RefreshAsync" InputUpdated="UpdateInput" GetAsync="Get" />
 	</div>
 </div>
+@if (SidebarIsOpen)
+{
+	<div class="sidebar">
+		<div class="flex-end">
+			<a id="back-arrow" class="material-symbols-outlined back-arrow" @onclick=Close>
+				arrow_back
+			</a>
+		</div>
+		<div class="sidebar-content">
+			<a>Home</a>
+			<a>Pokemon</a>
+			<a>Filters</a>
+			<a>Berries</a>
+			<a>About</a>
+		</div>
+	</div>
+}
+
 
 @code {
 	[Parameter]
 	public EventCallback<List<Pokemon>> Refresh { get; set; }
 	private string Input { get; set; } = string.Empty;
+	private bool SidebarIsOpen { get; set; } = false;
 
 	private async Task RefreshAsync(Pokemon pokemon)
 	{
@@ -39,5 +54,17 @@
 	public void UpdateInput(string input)
 	{
 		Input = input;
+	}
+
+	public void Open()
+	{
+		SidebarIsOpen = true;
+		StateHasChanged();
+	}
+
+	public void Close()
+	{
+		SidebarIsOpen = false;
+		StateHasChanged();
 	}
 }

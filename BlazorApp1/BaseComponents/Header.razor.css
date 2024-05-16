@@ -49,3 +49,50 @@
     border-radius: 5px;
     font-size: var(--font-size-big);
 }
+
+.sidebar {
+    display: flex;
+    flex-flow: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin: 0;
+    height: 100%;
+    width: 20%;
+    min-width: fit-content;
+    color: var(--white);
+    background-color: var(--pokemon-blue);
+    border-right: 2px solid var(--white);
+    border-left: 2px solid var(--white);
+}
+
+.sidebar-content {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    border-top: 2px solid var(--white);
+    box-sizing: border-box;
+    padding-top: 5px;
+}
+
+    .sidebar a {
+        margin: 5px;
+        font-size: var(--font-size-medium);
+    }
+
+        .sidebar a:hover {
+            transition: 0.35s;
+            background-color: var(--pokemon-blue-dark);
+        }
+
+#back-arrow {
+    transition: 0.35s;
+    font-size: 25px;
+}
+
+#back-arrow:hover{
+    transition: 0.35s;
+    background-color: var(--pokekon-blue);
+    transform:scale(1.2);
+    text-shadow: var(--text-shadow-default);
+}
