@@ -47,5 +47,5 @@
 .menu-symbol {
     border: 2px solid var(--white);
     border-radius: 5px;
-    font-size: 27px;
+    font-size: var(--font-size-big);
 }

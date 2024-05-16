@@ -22,6 +22,9 @@
     --gold-lighter: #ffd453;
     --gold-dark: #ecb100;
     --gold-darker: #d29e00;
+    --font-size-small: 15px;
+    --font-size-medium: 22px;
+    --font-size-big: 27px;
 }
 
 @font-face{
