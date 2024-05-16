@@ -2,10 +2,20 @@
 @using PokedexApp.Shared.Models.Pokemonss
 
 <div class="flex-row header-bar">
-	<div class="left-row">
-		<a href="/" class="title">MyPokédex</a>
+	<div class="row-item left-row">
+		<span class="material-symbols-outlined menu-symbol">
+			menu
+		</span>
+		@* <a>Home</a>
+		<a>Pokemon</a>
+		<a>Berries</a>
+		<a>About</a> *@
 	</div>
-	<div class="right-row">
+	<div class="row-item middle-row">
+		<a href="/" class="title">MyPokédex</a>
+
+	</div>
+	<div class="row-item right-row">
 		<Searchbar Titem="Pokemon" Placeholder="Find Pokemon..." Refresh="RefreshAsync" InputUpdated="UpdateInput" GetAsync="Get" />
 	</div>
 </div>

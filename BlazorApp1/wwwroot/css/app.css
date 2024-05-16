@@ -1,6 +1,8 @@
 :root {
+    --pokemon-red-light: #ff4343;
     --pokemon-red: #ff0000;
     --pokemon-red-dark: #cc0000;
+    --pokemon-red-darker: #880000;
     --pokemon-blue: #3b4cca;
     --pokemon-blue-dark: #1729b4;
     --pokemon-yellow: #ffde00;

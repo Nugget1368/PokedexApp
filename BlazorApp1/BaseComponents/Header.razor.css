@@ -2,8 +2,8 @@
     display: flex;
     position: fixed;
     overflow: hidden;
-    box-sizing:  border-box;
-    padding: 10px;
+    box-sizing: border-box;
+    padding: 0px 10px;
     top: 0;
     left: 0;
     width: 100%;
@@ -13,8 +13,20 @@
     align-items: center;
 }
 
-.left-row {
-    height: 3.5rem;
+.row-item {
+    display: flex;
+    width: 25%;
+    min-width: 100px;
+    max-width: 350px;
+}
+
+.middle-row {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    width: fit-content;
 }
 
 .title {
@@ -29,6 +41,11 @@
     background-clip: content-box;
     letter-spacing: 1px;
     position: relative;
-    top: -42px;
+    top: -38px;
     left: 0px;
+}
+
+.menu-symbol {
+    border: 2px solid ghostwhite;
+    border-radius: 20px;
 }
