@@ -3,18 +3,7 @@
 
 <div class="flex-row header-bar">
 	<div class="row-item left-row">
-		<input type="checkbox" id="sidebar-active" />
 		<label for="sidebar-active"><a class="material-symbols-outlined menu-symbol" @>menu</a></label>
-		<div class="sidebar" id="sidebar">
-			<label for="sidebar-active"><a class="material-symbols-outlined" id="back-arrow" @>arrow_back</a></label>
-			<div class="sidebar-content">
-				<a>Home</a>
-				<a>Pokemon</a>
-				<a>Filters</a>
-				<a>Berries</a>
-				<a>About</a>
-			</div>
-		</div>
 	</div>
 	<div class="row-item middle-row">
 		<a href="/" class="title">MyPokédex</a>
@@ -24,7 +13,18 @@
 		<Searchbar Titem="Pokemon" Placeholder="Find Pokemon..." Refresh="RefreshAsync" InputUpdated="UpdateInput" GetAsync="Get" />
 	</div>
 </div>
-<div style="position:fixed; top: 50%; left:0;">
+
+<input type="checkbox" id="sidebar-active" />
+<label id="overlay" for="sidebar-active"></label>
+<div class="sidebar" id="sidebar">
+	<label for="sidebar-active"><a class="material-symbols-outlined" id="back-arrow" @>arrow_back</a></label>
+	<div class="sidebar-content">
+		<a>Home</a>
+		<a>Pokemon</a>
+		<a>Filters</a>
+		<a>Berries</a>
+		<a>About</a>
+	</div>
 </div>
 
 
