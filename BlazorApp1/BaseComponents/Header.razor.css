@@ -1,4 +1,40 @@
-﻿.header-bar {
+﻿
+#back-arrow {
+    transition: 0.35s;
+    font-size: 25px;
+}
+
+    #back-arrow:hover {
+        transition: 0.35s;
+        background-color: var(--pokekon-blue);
+        transform: scale(1.2);
+        text-shadow: var(--text-shadow-default);
+    }
+
+#sidebar {
+    left: -100%;
+    transition: .45s ease;
+}
+
+#sidebar-active {
+    display: none;
+}
+
+    #sidebar-active:checked ~ #sidebar {
+        left: 0;
+    }
+
+    #sidebar-active:checked ~ #overlay {
+        transition: .55s;
+        background-color: rgb(0,0,0, 0.25);
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+.header-bar {
     display: flex;
     position: fixed;
     overflow: hidden;
@@ -85,38 +121,4 @@
     .sidebar a:hover {
         transition: 0.35s;
         background-color: var(--pokemon-blue-dark);
-    }
-
-#back-arrow {
-    transition: 0.35s;
-    font-size: 25px;
-}
-
-    #back-arrow:hover {
-        transition: 0.35s;
-        background-color: var(--pokekon-blue);
-        transform: scale(1.2);
-        text-shadow: var(--text-shadow-default);
-    }
-
-#sidebar {
-    left: -100%;
-    transition: .45s ease;
-}
-
-#sidebar-active {
-    display: none;
-}
-
-    #sidebar-active:checked ~ #sidebar {
-        left: 0;
-    }
-    #sidebar-active:checked ~ #overlay {
-        transition: .55s;
-        background-color: rgb(0,0,0, 0.25);
-        height: 100%;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
     }
