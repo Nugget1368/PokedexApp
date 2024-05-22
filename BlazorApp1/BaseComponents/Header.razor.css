@@ -10,6 +10,11 @@
         text-shadow: var(--text-shadow-default);
     }
 
+
+    #back-arrow:active{
+        color: var(--pokemon-red);
+        transform: scale(.95);
+    }
 #sidebar {
     left: -100%;
     transition: .45s ease;
@@ -81,10 +86,22 @@
 }
 
 .menu-symbol {
+    transition: .4s;
     border: 2px solid var(--white);
     border-radius: 5px;
     font-size: var(--font-size-big);
 }
+
+    .menu-symbol:hover {
+        transition: .35s;
+        background-color: var(--pokemon-red-darker);
+    }
+
+    .menu-symbol:active {
+        color: var(--pokemon-red-dark);
+        transform: scale(.95);
+        border-color: var(--pokemon-red-dark);
+    }
 
 .sidebar {
     display: flex;
@@ -112,31 +129,33 @@
     padding-top: 5px;
 }
 
-.sidebar a {
-    transition: .35s;
-    margin: 5px;
-    font-size: var(--font-size-medium);
-    color: var(--white);
-    text-decoration: none;
-}
-
-    .sidebar a:hover {
-        transition: 0.35s;
-        background-color: var(--pokemon-blue-dark);
+    .sidebar-content a {
+        transition: .35s;
+        margin: 5px;
+        font-size: var(--font-size-medium);
+        color: var(--white);
+        text-decoration: none;
     }
 
-    .sidebar a:active {
-        transition: .3s;
-        transform: scale(0.97);
-        color: var(--pokemon-red);
-    }
+        .sidebar-content a:hover {
+            transition: 0.35s;
+            background-color: var(--pokemon-blue-dark);
+            box-shadow: inset 0px 10px 20px rgb(0,0,0, 0.3);
+        }
 
-    .sidebar a:focus {
-        box-shadow: inset 0px 10px 20px rgb(0,0,0, 0.3);
-        border-radius: 20px;
-        padding-left: 10px;
-    }
-        .sidebar a:focus:before {
-            content: "•  ";
+        .sidebar-content a:active {
+            transition: .3s;
+            transform: scale(0.97);
             color: var(--pokemon-red);
         }
+
+        .sidebar-content a:focus {
+            box-shadow: inset 0px 10px 20px rgb(0,0,0, 0.3);
+            border-radius: 20px;
+            padding-left: 10px;
+        }
+
+            .sidebar-content a:focus:before {
+                content: "•  ";
+                color: var(--pokemon-red);
+            }
