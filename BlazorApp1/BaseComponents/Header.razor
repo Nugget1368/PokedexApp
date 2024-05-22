@@ -30,10 +30,14 @@
 	public EventCallback<List<Pokemon>> Refresh { get; set; }
 	private string Input { get; set; } = string.Empty;
 
-	private async Task RefreshAsync(Pokemon pokemon)
+	private async Task RefreshAsync(ResultModel<Pokemon> resultModel)
 	{
-		var pokemons = new List<Pokemon> { pokemon };
-		await Refresh.InvokeAsync(pokemons);
+		if (resultModel is not null && resultModel.Result is not null && resultModel.Success)
+		{
+			var pokemons = new List<Pokemon> { resultModel.Result };
+			await Refresh.InvokeAsync(pokemons);
+		}
+		//Else??
 	}
 
 	public async Task<ResultModel<Pokemon>> Get()

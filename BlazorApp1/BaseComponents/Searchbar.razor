@@ -4,15 +4,15 @@
 
 <div class="search-bar">
 	<input @bind="@Input" placeholder="@Placeholder" />
-		<a class="material-symbols-outlined symbol-size-medium" @onclick="OnSearch">
-			search
-		</a>
+	<a class="material-symbols-outlined symbol-size-medium" @onclick="OnSearch">
+		search
+	</a>
 </div>
 
 
 @code {
 	[Parameter]
-	public EventCallback<Titem> Refresh { get; set; }
+	public EventCallback<ResultModel<Titem>> Refresh { get; set; }
 	[Parameter]
 	public Func<Task<ResultModel<Titem>>>? GetAsync { get; set; }
 	[Parameter]
@@ -23,13 +23,23 @@
 
 	public async Task OnSearch()
 	{
+		var result = new ResultModel<Titem>();
 		await UpdateInput();
 		if (GetAsync is not null)
 		{
-			var result = await GetAsync();
-			if (result.Success && result.Result is not null)
+			try
 			{
-				await Refresh.InvokeAsync(result.Result);
+				result = await GetAsync();
+				if (result.Result is not null && result.Success)
+				{
+					await Refresh.InvokeAsync(result);
+				}
+			}
+			catch(Exception e)
+			{
+				result.Success = false;
+				result.ResultMessage = "Not found";
+				await Refresh.InvokeAsync(result);
 			}
 		}
 	}
