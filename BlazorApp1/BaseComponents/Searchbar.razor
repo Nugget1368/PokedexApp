@@ -38,7 +38,7 @@
 			catch(Exception e)
 			{
 				result.Success = false;
-				result.ResultMessage = "Not found";
+				result.ResultMessage = e.Message;
 				await Refresh.InvokeAsync(result);
 			}
 		}
