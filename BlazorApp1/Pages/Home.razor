@@ -13,8 +13,9 @@
 		}
 	}
 </div>
-
-<button class="btn-primary" @onclick=GetListPokemons>More</button>
+<div class="btn-container flex-row">
+	<button class="btn-primary" @onclick=GetListPokemons>More</button>
+</div>
 
 @code {
 	private List<Pokemon> Models { get; set; } = new();
