@@ -1,3 +1,7 @@
 ﻿.flex-row{
     justify-content: center;
 }
+
+.btn-container{
+    margin: 10px;
+}

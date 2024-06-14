@@ -42,7 +42,7 @@ html, body {
 
 footer {
     position: absolute;
-    bottom: -60px;
+    bottom: 0;
     color: var(--white);
     display: flex;
     flex-flow: row wrap;
@@ -50,6 +50,7 @@ footer {
     box-sizing: border-box;
     padding: 10px;
     width: 100%;
+    min-height: 1.5rem;
     background-color: var(--pokemon-red-dark);
 }
 
@@ -75,6 +76,10 @@ a:hover{
 #page-container {
     position: relative;
     min-height: 100vh;
+}
+
+#app{
+    padding-bottom: 4rem;
 }
 
 .show{
