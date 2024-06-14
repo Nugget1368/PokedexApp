@@ -47,7 +47,8 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--pokemon-red-dark);
+/*    min-width: 480px;
+*/    background-color: var(--pokemon-red-dark);
     color: var(--white);
     justify-content: space-between;
     align-items: center;
@@ -161,3 +162,16 @@
                 content: "•  ";
                 color: var(--pokemon-red);
             }
+
+@media screen and (max-width: 600px) {
+    .header-bar{
+        min-width: 370px;
+    }
+    .sidebar{
+        width: 100%;
+    }
+    a.title{
+        font-size: 27px;
+        top: -12px;
+    }
+}
