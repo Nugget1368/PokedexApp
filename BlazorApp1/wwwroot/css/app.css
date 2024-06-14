@@ -1,4 +1,14 @@
 :root {
+    --pokemon-red-light: #ff4343;
+    --pokemon-red: #ff0000;
+    --pokemon-red-dark: #cc0000;
+    --pokemon-red-darker: #880000;
+    --pokemon-blue: #3b4cca;
+    --pokemon-blue-dark: #1729b4;
+    --pokemon-yellow: #ffde00;
+    --pokemon-yellow-dark: #b3a125;
+    --white: #f6f4eb;
+    --white-dark: #ccc9bc;
     --blue: #084196;
     --light-blue: #63dff3;
     --base: #c0c0c0;
@@ -12,13 +22,44 @@
     --gold-lighter: #ffd453;
     --gold-dark: #ecb100;
     --gold-darker: #d29e00;
+    --font-size-small: 15px;
+    --font-size-medium: 22px;
+    --font-size-big: 27px;
+    --text-shadow-default: 0px 2px 3px rgb(0, 0, 0, 0.50);
+}
+
+@font-face{
+    font-family: "pokemon-solid";
+    src: url('../Fonts/Pokemon_Solid.ttf');
 }
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    background-color: #F5F5DC;
 }
 
+footer {
+    position: absolute;
+    bottom: 0;
+    color: var(--white);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+    min-height: 1.5rem;
+    background-color: var(--pokemon-red-dark);
+}
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
 button {
+    cursor: pointer;
     padding: 8px;
     font-size: 18px;
     border-radius: 12px;
@@ -26,6 +67,42 @@ button {
 
 p{
     margin: 0;
+}
+
+a:hover{
+    cursor:pointer;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#app{
+    padding-bottom: 4rem;
+}
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+.material-symbols-outlined {
+    font-size: 12px;
+}
+
+.symbol-size-small {
+    font-size: 5px;
+}
+
+.symbol-size-medium {
+    font-size: 12px;
+}
+.symbol-size-large {
+    font-size: 18px;
 }
 
 .btn-primary {
@@ -47,4 +124,13 @@ p{
 .flex-start{
     display: flex;
     justify-content: flex-start;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: end;
+}
+
+.main-content{
+    margin: 70px 0px 0px 0px;
 }

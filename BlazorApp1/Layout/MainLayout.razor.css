@@ -4,6 +4,11 @@
     flex-direction: column;
 }
 
+.header-bar{
+    width: 1vw;
+    background-color: darkred;
+}
+
 main {
     flex: 1;
 }

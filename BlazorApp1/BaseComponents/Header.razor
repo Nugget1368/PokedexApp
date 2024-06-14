@@ -1,0 +1,52 @@
+﻿@using PokedexApp.Shared.Models
+@using PokedexApp.Shared.Models.Pokemonss
+
+<div class="flex-row header-bar">
+	<div class="row-item left-row">
+		<label for="sidebar-active"><a class="material-symbols-outlined menu-symbol" @>menu</a></label>
+	</div>
+	<div class="row-item middle-row">
+		<a href="/" class="title">MyPokédex</a>
+	</div>
+	<div class="row-item right-row">
+		<Searchbar Titem="Pokemon" Placeholder="Find Pokemon..." Refresh="RefreshAsync" InputUpdated="UpdateInput" GetAsync="Get" />
+	</div>
+</div>
+<input type="checkbox" id="sidebar-active" />
+<label id="overlay" for="sidebar-active"></label>
+<div class="sidebar" id="sidebar">
+	<label for="sidebar-active"><a class="material-symbols-outlined" id="back-arrow" @>arrow_back</a></label>
+	<div class="sidebar-content">
+		<a href="/">Home</a>
+		<a href="/">Home</a>
+		<a href="/">Home</a>
+	</div>
+</div>
+
+
+
+@code {
+	[Parameter]
+	public EventCallback<List<Pokemon>> Refresh { get; set; }
+	private string Input { get; set; } = string.Empty;
+
+	private async Task RefreshAsync(ResultModel<Pokemon> resultModel)
+	{
+		if (resultModel is not null && resultModel.Result is not null && resultModel.Success)
+		{
+			var pokemons = new List<Pokemon> { resultModel.Result };
+			await Refresh.InvokeAsync(pokemons);
+		}
+		//Else??
+	}
+
+	public async Task<ResultModel<Pokemon>> Get()
+	{
+		return await Helpers.HttpHelper.GetPokemonAsync(Input);
+	}
+
+	public void UpdateInput(string input)
+	{
+		Input = input;
+	}
+}

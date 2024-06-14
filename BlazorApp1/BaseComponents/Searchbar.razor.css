@@ -1,0 +1,40 @@
+﻿.search-bar{
+    display: flex;
+    width: 100%;
+    margin: 0px 5px;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: var(--white);
+    padding-left: 3px;
+    border: 2px solid var(--white-dark);
+    border-radius: 10px;
+    justify-content: space-between;
+}
+
+input{
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
+a {
+    transition: 0.35s;
+    color: #000000;
+    display: flex;
+    padding: 3px;
+    border: 0px;
+    border-left: 1px solid var(--white-dark);
+    border-radius: 0px 8px 8px 0px;
+    background-color: transparent;
+}
+
+a:hover{
+    transition: 0.35s;
+    color: var(--white);
+    box-shadow: inset 0px 0px 40px var(--pokemon-red-dark);
+}
+
+a:active{
+    background-color: var(--pokemon-red-dark);
+}

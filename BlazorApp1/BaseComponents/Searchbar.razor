@@ -1,0 +1,51 @@
+﻿@using PokedexApp.Shared.Models
+@using PokedexApp.Shared.Models.Pokemonss
+@typeparam Titem
+
+<div class="search-bar">
+	<input @bind="@Input" placeholder="@Placeholder" />
+	<a class="material-symbols-outlined symbol-size-medium" @onclick="OnSearch">
+		search
+	</a>
+</div>
+
+
+@code {
+	[Parameter]
+	public EventCallback<ResultModel<Titem>> Refresh { get; set; }
+	[Parameter]
+	public Func<Task<ResultModel<Titem>>>? GetAsync { get; set; }
+	[Parameter]
+	public EventCallback<string> InputUpdated { get; set; }
+	[Parameter]
+	public string Placeholder { get; set; } = "...";
+	public string Input { get; set; } = string.Empty;
+
+	public async Task OnSearch()
+	{
+		var result = new ResultModel<Titem>();
+		await UpdateInput();
+		if (GetAsync is not null)
+		{
+			try
+			{
+				result = await GetAsync();
+				if (result.Result is not null && result.Success)
+				{
+					await Refresh.InvokeAsync(result);
+				}
+			}
+			catch(Exception e)
+			{
+				result.Success = false;
+				result.ResultMessage = e.Message;
+				await Refresh.InvokeAsync(result);
+			}
+		}
+	}
+
+	public async Task UpdateInput()
+	{
+		await InputUpdated.InvokeAsync(Input);
+	}
+}
