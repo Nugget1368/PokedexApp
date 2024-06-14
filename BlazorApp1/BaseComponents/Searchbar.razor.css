@@ -31,7 +31,6 @@ a {
 
 a:hover{
     transition: 0.35s;
-    /*background-color: var(--pokemon-red);*/
     color: var(--white);
     box-shadow: inset 0px 0px 40px var(--pokemon-red-dark);
 }
