@@ -2,7 +2,7 @@
 @if (Model is not null)
 {
 	<div class="card">
-		<div class="card-context">
+		<div id="@Model.Types.FirstOrDefault()!.Type!.Name.ToLower()" class="card-context">
 			<div class="top-card">
 				<div class="flex-row header-context">
 					<h3>@Model.Name</h3>

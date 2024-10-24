@@ -18,6 +18,22 @@ p, h3 {
     color: darkred;
 }
 
+#fire {
+    background: linear-gradient(45deg, #ea403c 0%, #e1140f 25%, #ea7a3c 50%, #b60e0a 100%);
+}
+
+#grass {
+    background: linear-gradient(45deg, #059132 0%, #026c24 25%, #71c558 50%, #03531d 100%);
+}
+
+#water {
+    background: linear-gradient(45deg, #3466d2 0%, #1856d8 25%, #6390F0 55%, #0b46c4 100%);
+}
+
+#flying {
+    background: linear-gradient(45deg, #A98FEB 0%, #ffff 45%, #eaeaea 55%, #aba5b9 100%);
+}
+
 .card{
     display: flex;
     align-items:center;
@@ -27,7 +43,6 @@ p, h3 {
     border-radius: 8px;
     padding: 7px;
     margin: 2px;
-    /*transform: scale(0.5);*/
 }
 
 .card-context {
